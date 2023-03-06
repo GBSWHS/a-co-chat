@@ -13,6 +13,8 @@ export const GlobalStyle = createGlobalStyle`
   body {
     max-width: 100vw;
     overflow-x: hidden;
+    width: 100vw;
+    height: 100vh;
     transition: all .35s;
   }
 
