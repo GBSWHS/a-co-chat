@@ -17,6 +17,6 @@ backgroundColor: #000
 ---
 # 사용할 언어 / 프레임워크 / API
 - **TypeScript**
-- **React**
+- **Next (React)**
 - **openAI**
 ---
