@@ -13,9 +13,13 @@ const HeaderBody = styled.div`
   position: fixed;
   top: 0;
   width: 100%;
-  height: 55px;
+  height: 9%;
   background-color: #B4DAF3;
   text-align: center;
+  z-index: 99999;
+  display: -webkit-box;
+  justify-content: center;
+  align-items: center;
 `
 
 const CenterIcon = styled.img`
