@@ -4,8 +4,13 @@ export interface chat {
 }
 
 export interface chatState {
-  chatList: chat[]
+  chatList: chat[],
+  chat: string,
+  loading: boolean
 }
 
 export type chatAction = 
   | { type: 'send', chat: [chat] }
+  | { type: 'change', chat: string }
+  | { type: 'load' }
+  | { type: 'notLoad' }
