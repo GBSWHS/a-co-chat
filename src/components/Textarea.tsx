@@ -1,11 +1,32 @@
+import { chatAction, chatState } from "@/utils/interfaces"
+import { Dispatch } from "react"
 import styled from "styled-components"
 
-export default function Textarea() {
+export default function Textarea({ state, updateEvent }: { state: chatState, updateEvent: Dispatch<chatAction> }) {
+  async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault()
+    if (state.loading) return;
+    else {
+      updateEvent({ type: 'send', chat: [{ message: state.chat, bot: false }] });
+      updateEvent({ type: 'change', chat: '' })
+      updateEvent({ type: 'load' })
+      const res = await fetch('/api/aco', {
+        method: 'post',
+        body: JSON.stringify({
+          quest: state.chat
+        })
+      }).then((res) => res.json())
+      updateEvent({ type: 'send', chat: [{ message: res.text, bot: true }] })
+      updateEvent({ type: 'notLoad' })
+      return
+    }
+  }
+  
   return (
-    <Body>
-      <ChatTextArea />
+    <Body onSubmit={onSubmit}>
+      <ChatTextArea value={state.chat} onChange={(e) => updateEvent({ type: 'change', chat: e.target.value })} />
       <span>
-        <ChatSubmit type={"submit"} value={"전송"} />
+        <ChatSubmit status={!state.chat ? false : state.loading ? false : true} type={"submit"} value={"전송"} />
       </span>
     </Body>
   )
@@ -16,8 +37,9 @@ const Body = styled.form`
   width: 100%;
   bottom: 0;
   background-color: white;
-  height: 100px;
+  height: 13%;
   padding: 5px;
+  z-index: 99999;
 `
 
 const ChatTextArea = styled.textarea`
@@ -37,9 +59,10 @@ const ChatSubmit = styled.input`
   height: 35px;
   width: 70px;
 
-  background-color: #65C2E4;
+  background-color: ${(props: {status: boolean}) => (!props.status ? '#444' : '#65C2E4')};
   color: white;
 
   border: none;
   border-radius: 5px;
+  cursor: pointer;
 `
