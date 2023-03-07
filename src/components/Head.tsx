@@ -1,6 +1,6 @@
 import NextHead from 'next/head'
 
-export default (() => {
+export default function Head () {
   return (
     <NextHead>
       <title>아코!</title>
@@ -9,4 +9,4 @@ export default (() => {
       <link rel="icon" href="/favicon.ico" />
     </NextHead>
   )
-})
+}
