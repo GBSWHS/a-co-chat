@@ -2,10 +2,10 @@
 marp: true
 class: invert
 paginate: true
-backgroundColor: #000
+backgroundColor: #123
 ---
 
-# *Project.* 아코
+# *Project.* 아코 챗 (a-co chat)
 메인테이너: **최태혁**
 
 ---
