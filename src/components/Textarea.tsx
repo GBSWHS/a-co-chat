@@ -36,8 +36,8 @@ const Body = styled.form`
   position: fixed;
   width: 100%;
   bottom: 0;
-  background-color: white;
-  height: 13%;
+  background-color: #2b2b2b;
+  height: 130px;
   padding: 5px;
   z-index: 99999;
 `
@@ -49,12 +49,15 @@ const ChatTextArea = styled.textarea`
   border: none;
   resize: none;
   outline: none;
+  background-color: #2b2b2b;
+  color: white;
+  font-size: 13px;
 `
 
 const ChatSubmit = styled.input`
-  position: fixed;
-  right: 0;
-  bottom: 0;
+  position: absolute;
+  right: 5px;
+  bottom: 5px;
   margin: 2px;
   height: 35px;
   width: 70px;
