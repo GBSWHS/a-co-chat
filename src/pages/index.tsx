@@ -37,7 +37,6 @@ export default function Home() {
             </div>
           </Chat>
         </ChatMainFlex>
-
       </ChatContent>
       <Textarea state={event} updateEvent={updateEvent} />
     </ChatBody>
